@@ -14,28 +14,43 @@ var numberString2 = "";
 
 console.log("rando number " + randomNumber);
 
+function crystalGame() {
+    if (totalScore === randomNumber) {
+        wins++;
+        $(".wins-column").html("Wins: " + wins);
+    } console.log(totalScore);
+}
+
+
+
 //random number to HTML
 $(".random-number").html(randomNumber);
 
 $("#blue-crystal").on("click", function() {
     totalScore += blueCrystal;
-    $(".total-score").html(totalScore);
+    $(".total-score").html("Your total score is " + totalScore);
+    crystalGame();
 })
 
 $("#green-crystal").on("click", function () {
     totalScore += greenCrystal;
-    $(".total-score").html(totalScore);
+    $(".total-score").html("Your total score is " + totalScore);
+    crystalGame();
 })
 
 $("#navy-crystal").on("click", function () {
     totalScore += navyCrystal;
-    $(".total-score").html(totalScore);
+    $(".total-score").html("Your total score is " + totalScore);
+    crystalGame();
 })
 
 $("#red-crystal").on("click", function () {
     totalScore += redCrystal;
-    $(".total-score").html(totalScore);
+    $(".total-score").html("Your total score is " + totalScore);
+    crystalGame();
 })
+
+
 
 
 });
