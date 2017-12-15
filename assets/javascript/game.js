@@ -1,30 +1,30 @@
 $(document).ready(function(){
 var min = 19;
 var max = 120;
-var randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
-var blueCrystal = Math.floor(Math.random() * 12) +1;
-var greenCrystal = Math.floor(Math.random() * 12) + 1;
-var navyCrystal = Math.floor(Math.random() * 12) + 1;
-var redCrystal = Math.floor(Math.random() * 12) + 1;
+var crystalMin = 1;
+var crystalMax = 12;
+var randomNumber, blueCrystal, greenCrystal, navyCrystal, redCrystal; 
 var wins = 0;
 var losses = 0;
 var totalScore = 0;
-var numberString1 = "";
-var numberString2 = "";
 
-console.log("rando number " + randomNumber);
 
-function crystalGame() {
-    if (totalScore === randomNumber) {
-        wins++;
-        $(".wins-column").html("Wins: " + wins);
-    } console.log(totalScore);
+//variables
+resetGame();
+function resetGame() {
+    totalScore = 0;
+    randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+    blueCrystal = Math.floor(Math.random() * (crystalMax - crystalMin + 1)) + crystalMin;
+    greenCrystal = Math.floor(Math.random() * (crystalMax - crystalMin + 1)) + crystalMin;
+    navyCrystal = Math.floor(Math.random() * (crystalMax - crystalMin + 1)) + crystalMin;
+    redCrystal = Math.floor(Math.random() * (crystalMax - crystalMin + 1)) + crystalMin;
+    $(".random-number").html(randomNumber);
+    $(".total-score").html("Your total score is " + totalScore);
+    $(".wins-column").html("Wins: " + wins);
+    $(".loss-column").html("Losses: " + losses);
 }
 
-
-
-//random number to HTML
-$(".random-number").html(randomNumber);
+//Click functions
 
 $("#blue-crystal").on("click", function() {
     totalScore += blueCrystal;
@@ -50,7 +50,18 @@ $("#red-crystal").on("click", function () {
     crystalGame();
 })
 
-
-
+//game wins and losses
+function crystalGame() {
+    if (totalScore === randomNumber) {
+        wins++;
+        $(".wins-column").html("Wins: " + wins);
+        resetGame();
+    }
+    else if (totalScore > randomNumber) {
+        losses++;
+        $(".loss-column").html("Losses: " + losses);
+        resetGame();
+    }
+};
 
 });
