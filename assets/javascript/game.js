@@ -18,8 +18,8 @@ function resetGame() {
     greenCrystal = Math.floor(Math.random() * (crystalMax - crystalMin + 1)) + crystalMin;
     navyCrystal = Math.floor(Math.random() * (crystalMax - crystalMin + 1)) + crystalMin;
     redCrystal = Math.floor(Math.random() * (crystalMax - crystalMin + 1)) + crystalMin;
-    $(".random-number").html(randomNumber);
-    $(".total-score").html("Your total score is " + totalScore);
+    $(".random-number").html("Match this number: " + randomNumber);
+    $(".total-score").html("Crystal total score is " + totalScore);
     $(".wins-column").html("Wins: " + wins);
     $(".loss-column").html("Losses: " + losses);
 }
@@ -28,25 +28,25 @@ function resetGame() {
 
 $("#blue-crystal").on("click", function() {
     totalScore += blueCrystal;
-    $(".total-score").html("Your total score is " + totalScore);
+    $(".total-score").html("Crystal total score is " + totalScore);
     crystalGame();
 })
 
 $("#green-crystal").on("click", function () {
     totalScore += greenCrystal;
-    $(".total-score").html("Your total score is " + totalScore);
+    $(".total-score").html("Crystal total score is " + totalScore);
     crystalGame();
 })
 
 $("#navy-crystal").on("click", function () {
     totalScore += navyCrystal;
-    $(".total-score").html("Your total score is " + totalScore);
+    $(".total-score").html("Crystal total score is " + totalScore);
     crystalGame();
 })
 
 $("#red-crystal").on("click", function () {
     totalScore += redCrystal;
-    $(".total-score").html("Your total score is " + totalScore);
+    $(".total-score").html("Crystal total score is " + totalScore);
     crystalGame();
 })
 
